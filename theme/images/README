@@ -1,0 +1,2 @@
+The /images directory is here because I saw that Compass init has set it as
+default images_dir in config.rb (and actually I like the idea).

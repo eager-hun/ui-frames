@@ -1,0 +1,214 @@
+/**
+ * @file
+ * Default stylesheet.
+ */
+
+@import "meta-variables";
+
+
+// #############################################################################
+// Reusables.
+
+%border-box {
+  @include box-sizing(border-box);
+}
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// #############################################################################
+// Layout.
+
+html {
+  @extend %border-box;
+
+  font-family: $font-sans-1;
+  font-size: 100% * ($default-font-size / 16px);
+  line-height: $default-line-height;
+
+  // _base-normalize.scss also has these, but to be sure.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  background: $color-light;
+  color: $color-text;
+}
+#page {
+  @extend %border-box;
+}
+.stripe {
+  @extend %border-box;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.page-center {
+  @extend %border-box;
+
+  margin: 0 auto;
+  min-width: $layout-page-min-width;
+  max-width: $layout-page-max-width;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.stripe--main {
+  padding-bottom: 2em;
+}
+
+@include sticky-footer(4em, "#page", "#footer_push", "#footer");
+
+#footer {
+  background: whitesmoke;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  // Overriding compass sticky footer.
+  height: auto;
+  min-height: 4em; // Same as in the sticky-footer mixin just above.
+
+  &.footer-nav {
+      // Box shadow syntax: $color $hoff $voff $blur $spread $inset
+    @include box-shadow($color-shadow 0 0 1em 0);
+
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Columns.
+.frame--has-sidebar {
+  @extend %clearfix;
+
+  .condi-column {
+    float: left;
+  }
+  &.sidebar-left {
+    .frame__content {
+      margin-left: 34%;
+      margin-right: -100%;
+      width: 66%;
+    }
+    .frame__meta {
+      margin-left: 0;
+      margin-right: -30%;
+      width: 30%;
+    }
+  }
+  &.sidebar-right {
+    .frame__content {
+      margin-left: 0;
+      margin-right: -66%;
+      width: 66%;
+    }
+    .frame__meta {
+      margin-left: 70%;
+      margin-right: -100%;
+      width: 30%;
+    }
+  }
+}
+
+
+
+// #############################################################################
+// Navigation.
+
+.main-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.main-menu li {
+  display: inline-block;
+  margin: 0.5em 0.5em;
+  font-weight: bold;
+}
+.main-menu a {
+  background: teal;
+  color: white;
+  border: 2px solid teal;
+  display: block;
+  font-weight: bold;
+  padding: 0.35em 0.8em;
+  text-decoration: none;
+}
+.main-menu a:hover,
+.main-menu a.active {
+  background: white;
+  color: teal;
+}
+.main-menu a.active {
+  background: white;
+  color: teal;
+}
+a.transition {
+  transition-property: background-color, color;
+  transition-duration: 0.1s;
+}
+.main-menu a:focus {
+  // Box shadow syntax: $color, $hoff, $voff, $blur, $spread, $inset
+  @include box-shadow(
+    white 0 0 1px 1px,
+    saturate(darken(teal, 25%), 50%) 0 0 5px 1px
+  );
+  outline: none;
+}
+
+
+// #############################################################################
+// Content.
+
+.frame--no-sidebar {
+  text-align: center;
+
+  .frame_content {
+    display: inline-block;
+  }
+}
+
+
+// #############################################################################
+// Typography.
+
+h1,
+h2 {
+  font-weight: normal;
+}
+.page__title {
+  margin: 0;
+}
+.frame__title {
+  margin-top: -0.25em;
+}
+.description {
+  margin-bottom: 3em;
+
+  p {
+    margin: 0 0 1em;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+
+// Misc.
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+

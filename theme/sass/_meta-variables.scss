@@ -1,0 +1,100 @@
+// Base variables.
+
+// Basic setup of variables that can be shared accross all stylesheets.
+
+// -----------------------------------------------------------------------------
+// Layout.
+
+$layout-page-min-width:           900px;
+$layout-page-max-width:           900px;
+
+
+// -----------------------------------------------------------------------------
+// Typography / fonts.
+
+// We are not going into vertical rythm yet.
+// Therefore we don't use $base-font-size and $base-line-height, as those
+// variable names would trigger Compass vertical rythm functions.
+$default-font-size:   15px;
+$default-line-height: 1.5;
+
+$font-sans-1:  Arial, Helvetica, "Nimbus Sans L", sans-serif;
+// Georgia is like 1000% nicer in (Windows) browsers than TNR.
+$font-serif-1: Georgia, "Times New Roman", "DejaVu Serif", serif;
+$font-serif-2: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+$font-mono-1:  "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+
+
+// -----------------------------------------------------------------------------
+// Colors.
+// @see http://html-color-codes.info/color-names/
+// @see https://kuler.adobe.com/create/color-wheel/
+
+// Brand-specific colors:
+$color-brand:             #0074bd; // The original color from the logo.
+$color-prim:              $color-brand; // A [processed] brand-color.
+$color-accent-1:          gold;
+$color-accent-2:          olive;
+
+$color-nav:               desaturate(lighten($color-prim, 15%), 30%);
+$color-action:            $color-accent-2; // Color for e.g. form submits.
+$color-help:              $color-prim;
+
+// For text.
+$color-text:              #333;
+$color-text-invert:       #fff;
+$color-minor:             #5f5f5f; // Faded text.
+$color-link:              $color-prim;
+$color-link-invert:       lighten($color-prim, 30%);
+
+// For layout elements.
+$color-light:             #fff;
+$color-bg:                $color-light;
+$color-bg-sec:            #333;
+$color-blockfill:         #eee;
+$color-border-mid:        #8f8f8f;
+$color-border-light:      lighten($color-border-mid, 20%);
+$color-border-dark:       darken($color-border-mid, 20%);
+
+// Misc colors.
+$color-shadow:            rgba(60, 35, 70, 0.6); // Purplish-blueish.
+$color-shadow-text:       #1B1327; // Darker than $color-shadow and full opaque.
+$color-status:            desaturate(lighten(green, 5%), 70%);
+$color-warning:           desaturate(darken(orange, 15%), 40%);
+$color-alert:             desaturate(darken(red, 10%), 40%); // A less harsh red.
+
+
+// -----------------------------------------------------------------------------
+// CSS3 defaults.
+
+// Box shadow syntax: $color $hoff $voff $blur $spread $inset.
+$default-box-shadow-color:      $color-shadow;
+$default-box-shadow-h-offset:   0;
+$default-box-shadow-v-offset:   0.15em;
+$default-box-shadow-blur:       0.85em;
+$default-box-shadow-spread:     0;
+
+$default-border-radius:         0.2em;
+
+$transitspeed-fast:             0.1s;
+$transitspeed-mid:              0.4s;
+$transitspeed-slow:             0.7s;
+
+
+// -----------------------------------------------------------------------------
+// Compass.
+
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+
+@import "compass/support";
+@import "compass/layout";
+@import "compass/utilities";
+@import "compass/typography";
+@import "compass/css3";
+
+// Optional asset: Zen Grids gem.
+// @see http://zengrids.com/
+// @see /sass-extensions/README
+// @import "zen";
