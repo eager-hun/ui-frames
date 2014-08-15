@@ -41,4 +41,4 @@ elseif (empty($frame_title) && empty($frame_description)) {
     </div>
   <?php endif; ?>
 
-</div>
+</div><!-- /.frame -->

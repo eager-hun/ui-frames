@@ -8,19 +8,12 @@ if (function_exists('xdebug_disable')) {
   xdebug_disable();
 }
 
-// #############################################################################
-// Global setup.
+$pages = array();
+$frames = array();
+$images = array();
+$page = array();
 
-$page_ids = array(
-  'frame-1',
-  'frame-2',
-  'frame-3',
-);
-
-// demo-specific assets, e.g. footable.js, footable.css.
-// $demo_css = '<link href="demo/demo-assets/demo.css" rel="stylesheet" type="text/css">'. "\n";
-// $demo_js  = '<script src="demo/demo-assets/demo.js"></script>' . "\n";
-
+include('demo/definitions-and-config.php');
 
 // -----------------------------------------------------------------------------
 // Request analisys.
@@ -28,72 +21,64 @@ $page_ids = array(
 $page_id = 'frame-1';
 if (!empty($_GET['frame'])) {
   $requested_page = $_GET['frame'];
-  $index = array_search($requested_page, $page_ids);
+  $index = array_search($requested_page, $frame_ids);
   if ($index !== false) {
-    $page_id = $page_ids[$index];
+    $page_id = $frame_ids[$index];
   }
 }
 
 // -----------------------------------------------------------------------------
-// Contents.
-include('demo/demo-assets/demo-content.php');
+// Response compiler.
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title><?php print $page['title']; ?></title>
-  <!-- link href="theme/styles-static/normalize.css" media="all" rel="stylesheet" -->
-  <link href="theme/css/styles.css" media="all" rel="stylesheet">
-  <!-- link href="theme/styles-static/static.css" media="all" rel="stylesheet" -->
+function _draw_menu_link($link_opts, &$output) {
+  $output .= '<li><a data-target-frame="' . $link_opts['target'] . '" href="?frame='
+    . $link_opts['target'] . '" ' . $link_opts['classes'] . '>'
+    . $link_opts['text'] . '</a></li>';
+}
 
-  <?php if (!empty($demo_css)): ?>
-    <?php print $demo_css . "\n"; ?>
-  <?php endif; ?>
+$page['content'] = '';
+$page['navigation'] = '<nav><ul class="main-menu">';
 
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div id="page">
+$index = 1;
+foreach ($frames as $frame_id => $frame_data) {
+  // Rendering frames.
+  $id          = $frame_id;
+  $frame_title = (!empty($frame_data['title'])) ? $frame_data['title'] : '';
+  $description = (!empty($frame_data['description'])) ? $frame_data['description'] : '';
+  $content     = (!empty($frame_data['content'])) ? $frame_data['content'] : '';
 
-    <header id="header" class="stripe stripe--header">
-      <div class="page-center">
-        <h1 class="page__title"><?php print $page['title']; ?></h1>
-      </div><!-- /.page-center -->
-    </header>
+  $visibility  = ' style="display: none"'; // Reset on each loop.
+  if ($frame_id == $page_id) {
+    $visibility   = '';                    // The active one is visible.
+  }
 
-    <div id="main" class="stripe stripe--main">
-      <div class="page-center">
-        <?php print $page['content']; ?>
-      </div>
-    </div>
+  ob_start();
+  include('theme/templates/frame-template.php');
+  $page['content'] .= ob_get_clean();
 
-    <div id="footer_push"></div>
-  </div><!-- /#page -->
+  // Rendering menu links.
+  $link_data = array(
+    'target' => $frame_id,
+  );
+  $link_data['text'] = (!empty($frame_data['link-text'])) ? $frame_data['link-text'] : $index;
+  if ($frame_id == $page_id) {
+    $classes = array('active');
+    $link_data['classes'] = ' class="' . implode(' ', $classes) . '"';
+  }
+  else {
+    $link_data['classes'] = '';
+  }
+  _draw_menu_link($link_data, $page['navigation']);
+  $index++;
+}
+unset($frame_id, $frame_data);
 
-  <footer id="footer" class="stripe stripe--footer footer-nav">
-    <div class="page-center">
+$page['navigation'] .= '</ul></nav>';
 
-      <?php
-        ob_start();
-        include('demo/demo-assets/demo-nav.php');
-        $navigation = ob_get_clean();
-        print $navigation;
-      ?>
 
-    </div>
-  </footer>
+// -----------------------------------------------------------------------------
+// Printing into page template.
 
-  <!-- Script-time. -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-  <script src="theme/js/template.js"></script>
+include('theme/templates/page-template.php');
 
-  <?php if (!empty($demo_js)): ?>
-    <?php print $demo_js; ?>
-  <?php endif; ?>
-
-</body>
-</html>
+exit;
