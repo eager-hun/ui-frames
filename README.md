@@ -2,7 +2,7 @@
 
 Very basic tool to present captioned images in a sequence.
 
-I imagined using it for presenting UI design wireframes.
+I imagined using it for demonstrating user interaction design concepts.
 
 ## Demo
 

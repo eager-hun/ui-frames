@@ -5,10 +5,6 @@
 
 (function ($, window, document, undefined) {
 
-  if (typeof window.console == 'object') {
-    // console.log("Script's in: template.js");
-  }
-
   var thisLink,
       prevLink,
       nextLink,
@@ -32,9 +28,9 @@
     setLinkActive(thisLink);
   });
 
-  $('.main-menu a').keydown(function(event) {
+  $(document).keydown(function(event) {
     event.keyCode ? event.keyCode : event.charCode;
-    linkParent = $(this).closest('li');
+    linkParent = $('.main-menu .active').closest('li');
     // Left key.
     if (event.keyCode == 37) {
       if (linkParent.prev('li').length > 0) {
@@ -48,8 +44,6 @@
       }
     }
   });
-
-  $('.main-menu .active').focus();
 
   window.setTimeout(function() {
     $('.main-menu a').each(function() {
