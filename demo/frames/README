@@ -1,0 +1,7 @@
+Place exported bitmap images from your artwork into this directory.
+
+It is advised that you use some systematic file naming scheme that is easy to
+follow.
+
+In the sibling file, 'content-definitions.php' these files will have to be
+assigned to the contents.

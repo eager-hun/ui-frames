@@ -1,4 +1,3 @@
-The images-source folder can be used as a handy trunk for the useful editable
-versions of the images that may form the interface elements.
+Place here the editable source of your graphics.
 
-(Meaning .psd, .ai, .xcf, .svg and alike files.)
+Export bitmaps into the sibling directory, 'frames'.
