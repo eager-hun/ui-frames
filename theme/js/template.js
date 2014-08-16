@@ -9,15 +9,17 @@
       prevLink,
       nextLink,
       linkParent,
-      targetFrame = '';
+      activeFrameLink,
+      targetFrameId = '';
 
   var setLinkActive = function(link) {
-    $('.main-menu a').removeClass('active');
+    $('.frame-nav a').removeClass('active');
     link.addClass('active');
     link.focus();
+    activeFrameLink = link; // Memorizing which one got active now.
   }
 
-  $('.main-menu a').click(function(event) {
+  $('.frame-nav a').click(function(event) {
     event.preventDefault();
     thisLink = $(this);
     targetFrameId = '#' + thisLink.attr('data-target-frame');
@@ -30,7 +32,7 @@
 
   $(document).keydown(function(event) {
     event.keyCode ? event.keyCode : event.charCode;
-    linkParent = $('.main-menu .active').closest('li');
+    linkParent = activeFrameLink.closest('li');
     // Left key.
     if (event.keyCode == 37) {
       if (linkParent.prev('li').length > 0) {
@@ -45,8 +47,10 @@
     }
   });
 
+  activeFrameLink = $('.frame-nav .active');
+
   window.setTimeout(function() {
-    $('.main-menu a').each(function() {
+    $('.menu a').each(function() {
       $(this).addClass('transition');
     });
   }, 200);

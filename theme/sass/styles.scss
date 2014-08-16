@@ -9,6 +9,16 @@
 // #############################################################################
 // Reusables.
 
+$color-prim: teal;
+$color-minor: #5a5a5a;
+$color-delicate: #dedede;
+
+%reset {
+  // If I knew Bower now I could have defined normalize.css as an easy-to-grab
+  // dependency.
+  margin: 0;
+  padding: 0;
+}
 %border-box {
   @include box-sizing(border-box);
 }
@@ -22,13 +32,26 @@
     clear: both;
   }
 }
+%menu-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+%transition-color {
+  transition-property: background-color, color;
+  transition-duration: 0.1s;
+}
 
 
 // #############################################################################
 // Layout.
 
 html {
-  @extend %border-box;
+  @extend %reset;
 
   font-family: $font-sans-1;
   font-size: 100% * ($default-font-size / 16px);
@@ -40,6 +63,9 @@ html {
 
   background: $color-light;
   color: $color-text;
+}
+body {
+  @extend %reset;
 }
 #page {
   @extend %border-box;
@@ -124,46 +150,62 @@ html {
 // #############################################################################
 // Navigation.
 
-.main-menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.case-nav {
+  @extend %menu-list;
+
+  li {
+    margin: 0 1px 0 0;
+  }
+  a {
+    color: $color-prim;
+    display: inline-block;
+    padding: 0.35em 0.7em;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      background-color: $color-prim;
+      color: white;
+    }
+  }
+}
+
+.frame-nav {
+  @extend %menu-list;
+
   text-align: center;
-}
-.main-menu li {
-  display: inline-block;
-  margin: 0.5em 0.5em;
-  font-weight: bold;
-}
-.main-menu a {
-  background: teal;
-  color: white;
-  border: 2px solid teal;
-  display: block;
-  font-weight: bold;
-  padding: 0.35em 0.8em;
-  text-decoration: none;
-}
-.main-menu a:hover,
-.main-menu a.active {
-  background: white;
-  color: teal;
-}
-.main-menu a.active {
-  background: white;
-  color: teal;
-}
-a.transition {
-  transition-property: background-color, color;
-  transition-duration: 0.1s;
-}
-.main-menu a:focus {
-  // Box shadow syntax: $color, $hoff, $voff, $blur, $spread, $inset
-  @include box-shadow(
-    white 0 0 1px 1px,
-    saturate(darken(teal, 25%), 50%) 0 0 5px 1px
-  );
-  outline: none;
+
+  li {
+    margin: 0.5em 0.5em;
+    font-weight: bold;
+  }
+  a {
+    background: $color-prim;
+    border: 2px solid $color-prim;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.35em 0.8em;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      background: white;
+      color: teal;
+    }
+    &.active {
+      background: white;
+      color: teal;
+    }
+    &:focus {
+      // Box shadow syntax: $color, $hoff, $voff, $blur, $spread, $inset
+      @include box-shadow(
+        white 0 0 1px 1px,
+        saturate(darken(teal, 25%), 50%) 0 0 5px 1px
+      );
+      outline: none;
+    }
+  }
 }
 
 
@@ -183,11 +225,15 @@ a.transition {
 // Typography.
 
 h1,
-h2 {
+h2,
+h3 {
   font-weight: normal;
 }
 .page__title {
-  margin: 0;
+  border-bottom: 1px solid desaturate(lighten($color-prim, 40%), 90%);
+  line-height: 1.35;
+  margin: -0.15em 0 -1px;
+  padding: 0 0 0.45em;
 }
 .frame__title {
   margin-top: -0.25em;
@@ -205,10 +251,13 @@ h2 {
 }
 
 
+// #############################################################################
 // Misc.
 img {
   max-width: 100%;
   height: auto;
 }
-
+a.transition {
+  @extend %transition-color;
+}
 

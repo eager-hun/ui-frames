@@ -23,6 +23,7 @@
     <header id="header" class="stripe stripe--header">
       <div class="page-center">
         <h1 class="page__title"><?php print $page['title']; ?></h1>
+        <?php print $page['navigation']['case-nav']; ?>
       </div><!-- /.page-center -->
     </header>
 
@@ -37,7 +38,7 @@
 
   <footer id="footer" class="stripe stripe--footer footer-nav">
     <div class="page-center">
-      <?php print $page['navigation']; ?>
+      <?php print $page['navigation']['frame-nav']; ?>
     </div>
   </footer>
 
