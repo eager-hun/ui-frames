@@ -8,11 +8,13 @@ if (function_exists('xdebug_disable')) {
   xdebug_disable();
 }
 
-$pages              = array();
-$frames             = array();
+
+$contents           = array();
 $images             = array();
+$request            = array();
 $page               = array();
 $page['navigation'] = array();
+$page['regions']    = array();
 
 include('demo/content-definitions.php');
 
@@ -22,23 +24,23 @@ include('demo/content-definitions.php');
 
 // Which case.
 $case_ids = array_keys($contents);
-$req_case_id = $case_ids[0]; // Default.
+$request['case_id'] = $case_ids[0]; // Default.
 if (!empty($_GET['case'])) {
   // We don't store the $_GET param, but our corresponding data.
   $index = array_search($_GET['case'], $case_ids);
   if ($index !== false) {
-    $req_case_id = $case_ids[$index];
+    $request['case_id'] = $case_ids[$index];
   }
 }
 
 // Which frame.
-$frame_ids = array_keys($contents[$req_case_id]['frames']);
-$req_frame_id = $frame_ids[0]; // Default.
+$frame_ids = array_keys($contents[$request['case_id']]['frames']);
+$request['frame_id'] = $frame_ids[0]; // Default.
 if (!empty($_GET['frame'])) {
   // We don't store the $_GET param, but our corresponding data.
   $index = array_search($_GET['frame'], $frame_ids);
   if ($index !== false) {
-    $req_frame_id = $frame_ids[$index];
+    $request['frame_id'] = $frame_ids[$index];
   }
 }
 
@@ -46,14 +48,15 @@ if (!empty($_GET['frame'])) {
 // #############################################################################
 //  Sanitizing user input (TODO).
 
-// $content_v.
-// Page title.
-// Case- and frame identifiers.
-// Case titles.
-// Frame title.
-// Frame link text.
-// Frame content (image filename?).
-// Frame description.
+// $content_v.                      - ?
+// Page title.                      - htmlspecialchars ?
+// Case- and frame identifiers.     - preg_replace non-ascii ?
+// Case titles.                     - htmlspecialchars ?
+// Case descriptions.               - strip_tags custom ?
+// Frame title.                     - htmlspecialchars ?
+// Frame link text.                 - htmlspecialchars ?
+// Frame content (image filename?). - ?
+// Frame description.               - strip_tags custom ?
 
 
 // #############################################################################
@@ -73,7 +76,7 @@ function _draw_frame_nav_link($link_opts, &$output) {
 
 // -----------------------------------------------------------------------------
 // Rendering the case-nav menu links.
-$page['navigation']['case-nav']  = '<nav><ul class="menu case-nav">';
+$page['navigation']['case-nav']  = '<nav class="case-nav"><ul class="menu">';
 $missing_link_text = 'Case title undefined';
 foreach ($case_ids as $case) {
   // Rendering menu links.
@@ -81,7 +84,7 @@ foreach ($case_ids as $case) {
     'href' => '?case=' . $case,
   );
   $link_data['text'] = (!empty($contents[$case]['title'])) ? $contents[$case]['title'] : $missing_link_text;
-  if ($case == $req_case_id) {
+  if ($case == $request['case_id']) {
     $classes = array('active');
     $link_data['classes'] = ' class="' . implode(' ', $classes) . '"';
   }
@@ -96,11 +99,11 @@ $page['navigation']['case-nav']  .= '</ul></nav>';
 
 // -----------------------------------------------------------------------------
 // Rendering the required set of frames and the frame-nav menu.
-$page['content'] = '';
+$page['regions']['content'] = '';
 $missing_content = 'Main content undefined';
-$page['navigation']['frame-nav'] = '<nav><ul class="menu frame-nav">';
+$page['navigation']['frame-nav'] = '<nav class="frame-nav"><ul class="menu">';
 $index = 1;
-foreach ($contents[$req_case_id]['frames'] as $frame_id => $frame_data) {
+foreach ($contents[$request['case_id']]['frames'] as $frame_id => $frame_data) {
 
   // Rendering a frame.
   $id          = $frame_id;
@@ -119,20 +122,20 @@ foreach ($contents[$req_case_id]['frames'] as $frame_id => $frame_data) {
   }
 
   $visibility  = ' style="display: none"'; // Reset on each loop.
-  if ($frame_id == $req_frame_id) {
+  if ($frame_id == $request['frame_id']) {
     $visibility = '';                      // The active one is visible.
   }
 
   ob_start();
   include('theme/templates/frame-template.php');
-  $page['content'] .= ob_get_clean();
+  $page['regions']['content'] .= ob_get_clean();
 
   // Rendering the corresponding frame-nav menu link.
   $link_data = array();
   $link_data['target'] = $frame_id;
-  $link_data['href']   = (!empty($_GET['case'])) ? '?case=' . $req_case_id . '&frame=' . $frame_id : '?frame=' . $frame_id;
+  $link_data['href']   = (!empty($_GET['case'])) ? '?case=' . $request['case_id'] . '&frame=' . $frame_id : '?frame=' . $frame_id;
   $link_data['text']   = (!empty($frame_data['link-text'])) ? $frame_data['link-text'] : $index;
-  if ($frame_id == $req_frame_id) {
+  if ($frame_id == $request['frame_id']) {
     $classes = array('active');
     $link_data['classes'] = ' class="' . implode(' ', $classes) . '"';
   }
@@ -144,6 +147,24 @@ foreach ($contents[$req_case_id]['frames'] as $frame_id => $frame_data) {
 }
 unset($index, $frame_id, $frame_data);
 $page['navigation']['frame-nav'] .= '</ul></nav>';
+
+
+// -----------------------------------------------------------------------------
+// Rendering further global page elements.
+
+$page['regions']['header'] = array();
+if (!empty($page['title'])) {
+  $page['regions']['header'][] = '<h1 class="page__title">'
+    . $page['title'] . '</h1>';
+}
+if (!empty($page['navigation']['case-nav'])) {
+  $page['regions']['header'][] = $page['navigation']['case-nav'];
+}
+if (!empty($contents[$request['case_id']]['description'])) {
+  $page['regions']['header'][] = '<div class="description description--case">'
+    . $contents[$request['case_id']]['description'] . '</div>';
+}
+$page['regions']['header'] = implode("\n", $page['regions']['header']);
 
 
 // -----------------------------------------------------------------------------

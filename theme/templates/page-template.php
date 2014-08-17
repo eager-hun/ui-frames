@@ -22,14 +22,17 @@
 
     <header id="header" class="stripe stripe--header">
       <div class="page-center">
-        <h1 class="page__title"><?php print $page['title']; ?></h1>
-        <?php print $page['navigation']['case-nav']; ?>
+        <?php if(!empty($page['regions']['header'])): ?>
+          <?php print $page['regions']['header']; ?>
+        <?php endif; ?>
       </div><!-- /.page-center -->
     </header>
 
     <div id="main" class="stripe stripe--main">
       <div class="page-center">
-        <?php print $page['content']; ?>
+        <?php if(!empty($page['regions']['content'])): ?>
+          <?php print $page['regions']['content']; ?>
+        <?php endif; ?>
       </div>
     </div>
 

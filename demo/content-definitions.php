@@ -51,7 +51,15 @@ $contents = array(
     'frames' => array(),
   ),
 );
-
+$contents['case-a']['description'] = <<< EOT
+<p>Case Alpha description.</p>
+EOT;
+$contents['case-b']['description'] = <<< EOT
+<p>Case Bravo description.</p>
+EOT;
+$contents['case-c']['description'] = <<< EOT
+<p>Case Charlie description.</p>
+EOT;
 
 /**
  * Define your images.
