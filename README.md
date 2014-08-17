@@ -2,7 +2,7 @@
 
 Very basic tool to present captioned images in a sequence.
 
-I imagined using it for demonstrating user interaction design concepts.
+I imagined using it for demonstrating concepts in user interaction design.
 
 ## Demo
 
@@ -28,6 +28,18 @@ Treat each instance of it as a disposable tool. Consider it a development snapsh
 Minimally maintained. It is a spare-time effort, and not the only one running.
 
 Suggestions and dialogue are always preferred over out-of-the-blue pull requests.
+
+## Planned features
+
+* Sanitization of handled data (security).
+* Three-column layout for screens big enough: the current header could form
+  a sidebar on the left.
+* Alternative layout for images (presumably in landscape orientation) up to
+  1280px width.
+* Tablet- and monitor-resembling visual frame around the presented images.
+* Template skin review: it should not compete for attention with the presented
+  design.
+* Allowing setting the layout and skin variants from the document-setup file.
 
 ## Legal disclaimer
 
