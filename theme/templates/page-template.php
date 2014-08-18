@@ -11,7 +11,7 @@
   <title><?php print $page['title']; ?></title>
   <!-- link href="theme/styles-static/normalize.css" media="all" rel="stylesheet" -->
   <link href="theme/css/styles.css" media="all" rel="stylesheet">
-  <!-- link href="theme/styles-static/static.css" media="all" rel="stylesheet" -->
+  <link href="theme/styles-static/static.css" media="all" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

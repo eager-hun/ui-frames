@@ -4,4 +4,9 @@
  * no compass is around.
  */
 
-
+/* Quick overriding the global template width. */
+/*
+.page-center {
+  max-width: 1000px
+}
+*/
