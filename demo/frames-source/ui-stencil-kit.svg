@@ -32,9 +32,9 @@
      id="namedview9"
      showgrid="true"
      inkscape:showpageshadow="false"
-     inkscape:zoom="0.088388348"
-     inkscape:cx="1624.0389"
-     inkscape:cy="-146.71959"
+     inkscape:zoom="0.125"
+     inkscape:cx="1913.4349"
+     inkscape:cy="85.681206"
      inkscape:window-x="138"
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
@@ -3192,7 +3192,7 @@
      id="rect3522"
      width="768"
      height="1024"
-     x="-1000"
+     x="-940"
      y="0" />
   <rect
      y="-481.5"
@@ -3973,4 +3973,189 @@
        style="color:#000000;fill:none;stroke:#ffffff;stroke-width:24.21052551;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        sodipodi:type="arc" />
   </g>
-</svg>
+  <rect
+     y="-905.49152"
+     x="2640.4868"
+     height="35"
+     width="723"
+     id="rect5042"
+     style="color:#000000;fill:#c4e0c4;fill-opacity:1;fill-rule:nonzero;stroke:#8ea3a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  <rect
+     y="304.40198"
+     x="1140.0859"
+     height="40.113289"
+     width="80.226578"
+     id="rect5057"
+     style="color:#000000;fill:#c4e0c4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text5059"
+     y="330.10742"
+     x="1237.7563"
+     style="font-size:16.04531479px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     xml:space="preserve"><tspan
+       y="330.10742"
+       x="1237.7563"
+       id="tspan5061"
+       sodipodi:role="line">message: OK</tspan></text>
+  <rect
+     style="color:#000000;fill:#efdbb5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     id="rect5063"
+     width="80.226578"
+     height="40.113289"
+     x="1140.0859"
+     y="344.40198" />
+  <text
+     xml:space="preserve"
+     style="font-size:16.04531479px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="1237.7563"
+     y="370.10742"
+     id="text5065"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5067"
+       x="1237.7563"
+       y="370.10742">message: warning</tspan></text>
+  <rect
+     style="color:#000000;fill:#efdbb5;fill-opacity:1;fill-rule:nonzero;stroke:#8ea3a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     id="rect5069"
+     width="723"
+     height="35"
+     x="2640.4868"
+     y="-965.49152" />
+  <rect
+     style="color:#000000;fill:#e6bebe;fill-opacity:1;fill-rule:nonzero;stroke:#8ea3a8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     id="rect5113"
+     width="723"
+     height="35"
+     x="2640.4868"
+     y="-1025.4915" />
+  <rect
+     y="384.40198"
+     x="1140.0859"
+     height="40.113289"
+     width="80.226578"
+     id="rect5115"
+     style="color:#000000;fill:#e6bebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text5117"
+     y="410.10742"
+     x="1237.7563"
+     style="font-size:16.04531479px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     xml:space="preserve"><tspan
+       y="410.10742"
+       x="1237.7563"
+       id="tspan5119"
+       sodipodi:role="line">message: alert</tspan></text>
+  <rect
+     style="color:#000000;fill:#800000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     id="rect5586-7"
+     width="22"
+     height="22"
+     x="2650.0024"
+     y="-1018.9939"
+     ry="11" />
+  <g
+     transform="translate(1010.7063,-1486.2999)"
+     id="g5604-4">
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5606-2"
+       width="3"
+       height="18"
+       x="827.22223"
+       y="1496.1489"
+       ry="0"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)" />
+    <rect
+       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+       ry="0"
+       y="-837.72223"
+       x="1503.6489"
+       height="18"
+       width="3"
+       id="rect5608-7"
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  </g>
+  <rect
+     ry="11"
+     y="-898.9939"
+     x="2650.0024"
+     height="22"
+     width="22"
+     id="rect5562-7"
+     style="color:#000000;fill:#008000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+  <path
+     style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     d="m 2653.9371,-885.82 2.174,-2.1739 2.1739,2.1739 7.6088,-8.6958 2.1739,2.174 -9.7827,10.8697 z"
+     id="path5564-9"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccc" />
+  <rect
+     style="color:#000000;fill:#c87137;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     id="rect5622-3"
+     width="22"
+     height="22"
+     x="2650.0049"
+     y="-958.93701"
+     ry="11" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text5634-1"
+     y="-941.49463"
+     x="2658.0518"
+     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans"
+     xml:space="preserve"><tspan
+       style="font-size:18px;font-weight:bold;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       y="-941.49463"
+       x="2658.0518"
+       id="tspan5636-9"
+       sodipodi:role="line">!</tspan></text>
+  <flowRoot
+     xml:space="preserve"
+     id="flowRoot5182"
+     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+       id="flowRegion5184"><rect
+         id="rect5186"
+         width="327.39044"
+         height="65.760933"
+         x="2684.1772"
+         y="-854.07562" /></flowRegion><flowPara
+       id="flowPara5188"></flowPara></flowRoot>  <flowRoot
+     transform="translate(3981.8231,-1578.8263)"
+     style="font-size:15px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans"
+     id="flowRoot5190"
+     xml:space="preserve"><flowRegion
+       id="flowRegion5192"><rect
+         style="font-size:15px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         y="682.30505"
+         x="-1300.8813"
+         height="27.803747"
+         width="660.26263"
+         id="rect5194" /></flowRegion><flowPara
+       id="flowPara5198">Yay, this was a great success.</flowPara></flowRoot>  <flowRoot
+     xml:space="preserve"
+     id="flowRoot5202"
+     style="font-size:15px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans"
+     transform="translate(3981.8231,-1638.8263)"><flowRegion
+       id="flowRegion5204"><rect
+         id="rect5206"
+         width="660.26263"
+         height="27.803747"
+         x="-1300.8813"
+         y="682.30505"
+         style="font-size:15px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" /></flowRegion><flowPara
+       id="flowPara5208">Warning: you may want to know about this.</flowPara></flowRoot>  <flowRoot
+     transform="translate(3981.8231,-1698.8263)"
+     style="font-size:15px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans"
+     id="flowRoot5210"
+     xml:space="preserve"><flowRegion
+       id="flowRegion5212"><rect
+         style="font-size:15px;color:#000000;fill:#4b4b4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         y="682.30505"
+         x="-1300.8813"
+         height="27.803747"
+         width="660.26263"
+         id="rect5214" /></flowRegion><flowPara
+       id="flowPara5216">Alert: something went wrong.</flowPara></flowRoot></svg>
