@@ -1,0 +1,7 @@
+Inspired by Zen Drupal theme, this folder may be utilized to keep a copy of
+Zen Grids or other libraries here.
+
+(With the properly set path the zen-grids.gemspec file should be in
+ '/sass-extensions/zen-grids/zen-grids.gemspec'.)
+
+EDIT: This note should have been written in the pre-Bundler era.

@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?php print $page['title']; ?></title>
+  <title><?php print $page['printables']['page-title']; ?></title>
   <!-- link href="theme/styles-static/normalize.css" media="all" rel="stylesheet" -->
   <link href="theme/css/styles.css" media="all" rel="stylesheet">
   <link href="theme/styles-static/static.css" media="all" rel="stylesheet">
@@ -22,9 +22,11 @@
 
     <header id="header" class="stripe stripe--header">
       <div class="page-center">
-        <?php if(!empty($page['regions']['header'])): ?>
-          <?php print $page['regions']['header']; ?>
-        <?php endif; ?>
+        <div class="inner">
+          <?php if(!empty($page['regions']['header'])): ?>
+            <?php print $page['regions']['header']; ?>
+          <?php endif; ?>
+        </div>
       </div><!-- /.page-center -->
     </header>
 

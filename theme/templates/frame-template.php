@@ -4,7 +4,6 @@
  * Content template.
  */
 
-$frame_classes = array('frame');
 if (!empty($frame_title) || !empty($frame_description)) {
   $sidebar = true;
   $frame_classes[] = 'frame--has-sidebar';

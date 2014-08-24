@@ -6,7 +6,7 @@
 // Layout.
 
 $layout-page-min-width:           900px;
-$layout-page-max-width:           900px;
+$layout-page-max-width:          1200px;
 
 
 // -----------------------------------------------------------------------------
@@ -30,34 +30,28 @@ $font-mono-1:  "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
 // @see http://html-color-codes.info/color-names/
 // @see https://kuler.adobe.com/create/color-wheel/
 
-// Brand-specific colors:
-$color-brand:             #0074bd; // The original color from the logo.
-$color-prim:              $color-brand; // A [processed] brand-color.
-$color-accent-1:          gold;
-$color-accent-2:          olive;
 
-$color-nav:               desaturate(lighten($color-prim, 15%), 30%);
-$color-action:            $color-accent-2; // Color for e.g. form submits.
-$color-help:              $color-prim;
+$color-prim: desaturate(lighten(#8D0E6B, 10%), 50%);
 
 // For text.
 $color-text:              #333;
 $color-text-invert:       #fff;
-$color-minor:             #5f5f5f; // Faded text.
+$color-minor:             #5a5a5a; // Faded text.
 $color-link:              $color-prim;
 $color-link-invert:       lighten($color-prim, 30%);
 
 // For layout elements.
 $color-light:             #fff;
-$color-bg:                $color-light;
-$color-bg-sec:            #333;
+$color-delicate:          #dedede;
+$color-bg-prim:           whitesmoke;
+$color-bg-sec:            #e5e5e5;
 $color-blockfill:         #eee;
 $color-border-mid:        #8f8f8f;
 $color-border-light:      lighten($color-border-mid, 20%);
 $color-border-dark:       darken($color-border-mid, 20%);
 
 // Misc colors.
-$color-shadow:            rgba(60, 35, 70, 0.6); // Purplish-blueish.
+$color-shadow:            rgba(50, 40, 65, 0.6); // Purplish-blueish.
 $color-shadow-text:       #1B1327; // Darker than $color-shadow and full opaque.
 $color-status:            desaturate(lighten(green, 5%), 70%);
 $color-warning:           desaturate(darken(orange, 15%), 40%);

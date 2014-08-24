@@ -10,7 +10,7 @@ I imagined using it for demonstrating concepts in user interaction design.
 
 ## Security
 
-Not secured yet. Anyways, on this level securing it would only be symbolic. Please use with good intent.
+Not secured yet. Please use with good intent.
 
 ### Be warned:
 
@@ -21,7 +21,7 @@ machine.
 
 ## Expectation management
 
-Treat each instance of it as a disposable tool. Consider it a development snapshot (nightly). Non-backwards-compatible changes may pour in any time.
+Treat each instance of it as a disposable tool. Consider it a development snapshot. Non-backwards-compatible changes may pour in any time.
 
 ## Maintenance and support
 
@@ -31,14 +31,12 @@ Suggestions and dialogue are always preferred over out-of-the-blue pull requests
 
 ## Planned features
 
-* Sanitization of handled data (security).
+* Escaping of output data (security).
 * Three-column layout for screens big enough: the current header could form
   a sidebar on the left.
 * Alternative layout for images (presumably in landscape orientation) up to
   1280px width.
 * Tablet- and monitor-resembling visual frame around the presented images.
-* Template skin review: it should not compete for attention with the presented
-  design.
 * Allowing setting the layout and skin variants from the document-setup file.
 
 ## Legal disclaimer

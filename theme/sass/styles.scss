@@ -9,10 +9,6 @@
 // #############################################################################
 // Reusables.
 
-$color-prim: teal;
-$color-minor: #5a5a5a;
-$color-delicate: #dedede;
-
 %reset {
   // If I knew Bower now I could have defined normalize.css as an easy-to-grab
   // dependency.
@@ -57,8 +53,6 @@ html {
   font-family: $font-sans-1;
   font-size: 100% * ($default-font-size / 16px);
   line-height: $default-line-height;
-
-  // _base-normalize.scss also has these, but to be sure.
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 
@@ -70,6 +64,8 @@ body {
 }
 #page {
   @extend %border-box;
+
+  background: $color-bg-prim;
 }
 .stripe {
   @extend %border-box;
@@ -88,6 +84,18 @@ body {
 }
 
 // Header.
+.stripe--header {
+  padding-top: 0;
+
+  .page-center > .inner {
+    // Box shadow syntax: $color $hoff $voff $blur $spread $inset
+    @include box-shadow(desaturate(lighten($color-shadow, 25%), 10%) 0 0.05em 1em 0);
+
+    background: $color-bg-sec;
+    margin-top: -1em;
+    padding-top: 1em;
+  }
+}
 .case-nav + .description--case {
   margin-top: 1em;
 }
@@ -102,7 +110,7 @@ body {
 @include sticky-footer(4em, "#page", "#footer_push", "#footer");
 
 #footer {
-  background: whitesmoke;
+  background: $color-bg-sec;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 
@@ -111,7 +119,7 @@ body {
   min-height: 4em; // Same as in the sticky-footer mixin just above.
 
   &.footer-nav {
-      // Box shadow syntax: $color $hoff $voff $blur $spread $inset
+    // Box shadow syntax: $color $hoff $voff $blur $spread $inset
     @include box-shadow($color-shadow 0 0 1em 0);
 
     bottom: 0;
@@ -163,14 +171,18 @@ body {
 .case-nav {
   .menu {
     @extend %menu-list;
+    @extend %clearfix;
   }
   li {
+    display: block;
+    float: left;
     margin: 0 1px 0 0;
   }
   a {
     color: $color-prim;
     display: inline-block;
-    padding: 0.05em 0.65em;
+    margin: 0;
+    padding: 0.2em 1em;
     text-decoration: none;
 
     &:hover,
@@ -203,17 +215,17 @@ body {
     &:hover,
     &.active {
       background: white;
-      color: teal;
+      color: $color-prim;
     }
     &.active {
       background: white;
-      color: teal;
+      color: $color-prim;
     }
     &:focus {
       // Box shadow syntax: $color, $hoff, $voff, $blur, $spread, $inset
       @include box-shadow(
         white 0 0 1px 1px,
-        saturate(darken(teal, 25%), 50%) 0 0 5px 1px
+        saturate(darken($color-prim, 25%), 50%) 0 0 5px 1px
       );
       outline: none;
     }
@@ -224,12 +236,25 @@ body {
 // #############################################################################
 // Content.
 
-.frame--no-sidebar {
+.description--case {
+  margin-bottom: 2em;
+}
+.frame-type--image.frame--no-sidebar {
   text-align: center;
 
   .frame_content {
     display: inline-block;
   }
+}
+.frame__content img {
+  background: white;
+  border: 1px solid #dedede;
+  vertical-align: text-bottom;
+}
+.frame-type--text .frame__content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
 }
 
 
@@ -246,11 +271,15 @@ h2:first-child,
 h3:first-child {
   margin-top: -0.25em;
 }
-.page__title {
-  border-bottom: 1px solid desaturate(lighten($color-prim, 40%), 90%);
-  line-height: 1.35;
-  margin: -0.15em 0 -1px;
-  padding: 0 0 0.45em;
+.stripe--header {
+  .page__title {
+    border-bottom: 1px solid desaturate(lighten($color-prim, 40%), 90%);
+    font-size: 1.5em;
+    line-height: 1.35;
+    margin: 0;
+    padding: 0.45em 0;
+    text-indent: 0.5em;
+  }
 }
 .frame__title {
   margin-top: -0.25em;
